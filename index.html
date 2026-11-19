@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Słówka B2–C1</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Słówka B2–C1</h1>
+    <p id="stats" aria-live="polite"></p>
+  </header>
+
+  <nav class="tabs">
+    <button id="tab-learn" class="tab on">Nauka</button>
+    <button id="tab-words" class="tab">Moje słówka</button>
+  </nav>
+
+  <section id="view-learn">
+    <label class="mode">
+      Powtarzaj:
+      <select id="mode">
+        <option value="todo">jeszcze nieopanowane</option>
+        <option value="unknown">tylko „nie znam”</option>
+        <option value="all">wszystkie słowa</option>
+      </select>
+    </label>
+
+    <button id="card" class="card" aria-label="Odwróć fiszkę">
+      <span id="lang" class="lang"></span>
+      <span id="text" class="text"></span>
+      <span id="hint" class="hint">Kliknij, aby zobaczyć tłumaczenie</span>
+    </button>
+
+    <div class="actions">
+      <button id="no" class="btn no">Nie znam</button>
+      <button id="yes" class="btn yes">Znam</button>
+    </div>
+    <p class="keys">Skróty: spacja – odwróć, ← nie znam, → znam</p>
+  </section>
+
+  <section id="view-words" hidden>
+    <form id="add" class="add">
+      <input id="en" placeholder="Po angielsku" autocomplete="off" required>
+      <input id="pl" placeholder="Po polsku" autocomplete="off" required>
+      <div class="row">
+        <button id="save" class="btn yes" type="submit">Dodaj słówko</button>
+        <button id="cancel" class="btn gray" type="button" hidden>Anuluj</button>
+      </div>
+    </form>
+    <p id="msg" class="msg" aria-live="polite"></p>
+
+    <h2 id="count">Moje słówka</h2>
+    <ul id="list" class="list"></ul>
+
+    <h2>Import i eksport</h2>
+    <div class="tools">
+      <button id="exp-csv" class="btn gray">Eksportuj słówka (CSV)</button>
+      <button id="imp-csv" class="btn gray">Importuj CSV</button>
+      <button id="exp-bak" class="btn gray">Kopia zapasowa</button>
+      <button id="imp-bak" class="btn gray">Przywróć kopię</button>
+    </div>
+    <p class="keys">CSV: dwie kolumny „angielski;polski”, jedno słówko w wierszu. Kopia zapasowa zawiera własne słówka i postępy.</p>
+    <input id="file" type="file" hidden>
+  </section>
+
+  <footer>
+    <button id="reset" class="link">Wyzeruj postępy</button>
+  </footer>
+</main>
+<script src="words.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
